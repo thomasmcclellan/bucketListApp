@@ -1,10 +1,14 @@
 const User = require('../models/user');
 
 exports.signup = function(req, res, next){
-	//1
+	
 	let email = req.body.email;
 	let password = req.body.password;
-	//2
+	
+	if (!email || !password){
+		return res.status(418).send({error: 'You must provide email and password'});
+	}
+
 	User.findOne({ email: email }, function(err, existingUser){
 		if(err){
 			return next(err);
@@ -15,7 +19,7 @@ exports.signup = function(req, res, next){
 			return res.status(418).send('Email is in use');
 		} //Handles existing users
 
-		//3 
+		
 		let user = new User({
 			email: email,
 			password: password
@@ -26,7 +30,7 @@ exports.signup = function(req, res, next){
 			if (err){
 				return next(err);
 			}
-			//4 Respond to request indicating the user was created
+			//Respond to request indicating the user was created
 			res.json({ success: true });
 		});
 	});
