@@ -1,13 +1,13 @@
-const Auth = require('./controllers/auth'); //Include the authorization controller
-const User = require('./models/user'); //Include the User model
+const Auth = require('./controllers/auth'); 
+const passportService = require('./services/passport');
+const passport = require('passport');
+
+const requireAuth = passport.authenticate('jwt', { session: false });
 
 module.exports = function(app){
-	app.get('/', function(req, res, next){
-		res.send("HELLO HOMEPAGE");
-	});
-
-	app.get('/signup', function(req, res, next){
-		res.send("Hey folks, thanks for signing up!");
+	app.get('/', requireAuth, function(req, res){
+		res.send('HELLO HOMEPAGE');
+		//res.send({hi: 'there'});
 	});
 
 	app.post('/signup', Auth.signup);
