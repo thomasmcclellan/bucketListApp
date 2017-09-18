@@ -4,6 +4,41 @@ const config = require('../config');
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 
+const LocalStrategy = require('passport-local');
+
+//Create local strategy
+//usernameField: 'email'
+const localOptions = { usernameField: 'email' };
+
+const localLogin = new LocalStrategy(localOptions, function(email, password, done){
+	User.findOne({ email: email }, function(err, user){
+		if (err){ 
+			return done(err); 
+		}
+		if (!user){
+			return done(null, false);
+		}
+
+		//Compare passwords - is 'password' equal to use.password?
+		//Compare pw from req with users saved pw
+		user.comparePassword(password, function(err, isMatch){
+			//If there was an error, return early
+			if (err){
+				return done(err);
+			}
+			//If it's not the same, it will return false and say they didn't match up
+			if (!isMatch){
+				return done(null, false);
+			}
+
+			//If same, it will call passport callback with user model
+			return done(null, user);
+		});
+		//Tricky part => we salted the password, and we need to somehow decode encrypted pw to normal pw
+	});
+	//Otherwise, call done with false
+});
+
 const jwtOptions = {
 	jwtFromRequest: ExtractJwt.fromHeader('authorization'),
 	secretOrKey: config.secret
@@ -30,3 +65,4 @@ const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done){
 });
 
 passport.use(jwtLogin);
+passport.use(localLogin);
