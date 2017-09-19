@@ -9,9 +9,9 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	module: {
-		leaders: [{
+		loaders: [{
 			exclude: /node_modules/,
-			leader: 'babel',
+			loader: 'babel',
 			query: {
 				presets: [ 'react', 'es2015', 'stage-1' ]
 			}
