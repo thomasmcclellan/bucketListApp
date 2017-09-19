@@ -11,10 +11,13 @@ class SearchBar extends Component {
 				<label className='vidSearchLbl'>
 					Get INSPIRED:
 				</label>
+				<input 
+					value = { this.state.term }
+					onChange = { (event) => this.onInputChange(event.target.value) } />
 			</div>
 		);
 	}
-	conInputChange(term){
+	onInputChange(term){
 		this.setState({ term });
 		this.props.onSearchTermChange(term);
 	}
