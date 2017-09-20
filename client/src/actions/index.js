@@ -1,13 +1,16 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, UNAUTH_USER } from './types.js';
 import authReducer from '../reducers/auth_reducer.js';
-
-const ROOT_URL = 'http://localhost:3000';
-// const ROOT_URL = 'http://rest.learncode.academy/api/tom'
+import { 
+	AUTH_USER, 
+	UNAUTH_USER, 
+	AUTH_ERROR
+} from './types.js';
 
 export const CREATE_POSTS = 'CREATE_POSTS';
 
+const ROOT_URL = 'http://localhost:3000';
+// const ROOT_URL = 'http://rest.learncode.academy/api/tom'
 
 export function signinUser({ email, password }){
 	return function(dispatch){
@@ -22,10 +25,15 @@ export function signinUser({ email, password }){
 				//This sends us off to the /newitem view
 				browserHistory.push('/newitem');
 			})
-			.catch(() => {
-
-			});
+			.catch(response => dispatch(authError('Bad login info'))); 
 	}
+}
+
+export function authError(error){
+	return {
+		type: AUTH_ERROR,
+		payload: error
+	};
 }
 
 export function createPost(props){
@@ -35,3 +43,4 @@ export function createPost(props){
 		payload: request
 	};
 }
+
