@@ -12,12 +12,13 @@ class Signin extends Component{
 		const { handleSubmit, fields: { email, password }} = this.props;
 		return (
 			<form onSubmit={ handleSubmit(this.handleFormSubmit.bind(this)) }>
+				<h3>signUP!</h3>
 				<fieldset className='form-group'>
-					<label>Email:</label>
+					<label>email:</label>
 					<input { ...email } className='form-control' />
 				</fieldset>
 				<fieldset className='form-group'>
-					<label>Pasword:</label>
+					<label>pasword:</label>
 					<input { ...password } type='password' className='form-control' />
 				</fieldset>
 				<button action='submit' className='btn btn-primary'>SIGN In</button>

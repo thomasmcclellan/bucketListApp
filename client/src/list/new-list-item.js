@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
-import { createPost } from '../../actions/index.js';
+import { createPost } from '../actions/index.js';
 import { Link } from 'react-router';
 
 class ListItem extends Component{
@@ -12,26 +12,26 @@ class ListItem extends Component{
 		const { fields: { title, topic, url, content }, handleSubmit } = this.props;
 		return (
 			<form onSubmit={ handleSubmit(this.handleFormSubmit.bind(this)) }>
-				<h3>CREATE a NEW Post!</h3>
+				<h3>writePOST!</h3>
 				<fieldset className='form-group'>
-					<label>TITLE</label>
+					<label>title</label>
 					<input type='text' className='form-control' { ...title } />
 				</fieldset>
 				<fieldset className='form-group'>
-					<label>CATEGORY</label>
+					<label>category</label>
 					<input type='text' className='form-control' { ...topic } />
 				</fieldset>
 				<fieldset className='form-group'>
-					<label>URL</label>
+					<label>url</label>
 					<input type='text' className='form-control' { ...url } />
 				</fieldset>
 				<fieldset className='form-group'>
-					<label>CONTENT</label>
+					<label>content</label>
 					<input type='text' rows='8' className='form-control text' { ...content } />
 				</fieldset>
 
-				<button type='submit' className='btn btn-primary'>SUBMIT</button>
-				<Link to='/' className='btn btn-danger'>CANCEL</Link>
+				<button type='submit' className='btn btn-primary'>submit</button>
+				<Link to='/' className='btn btn-danger'>cancel</Link>
 			</form>
 		);
 	}

@@ -7,18 +7,18 @@ class NavBarHeader extends Component {
 			<Navbar>
 				<Navbar.Header>
 					<Navbar.Brand>
-						<a href='#'>BUCKETList</a>
+						<a href='#'>bucketLIST</a>
 					</Navbar.Brand>
 				</Navbar.Header>
 				<Nav>
-					<NavItem eventKey={ 1 } href='#'>SIGN In</NavItem>
-					<NavItem eventKey={ 2 } href='#'>SIGN Up</NavItem>
-					<NavDropdown eventKey={ 3 } title='COOL Stuff' id='basic-nav-dropdown'>
-						<MenuItem eventKey={ 3.1 }>Action</MenuItem>
-						<MenuItem eventKey={ 3.2 }>Another Action</MenuItem>
-						<MenuItem eventKey={ 3.3 }>Something else here...</MenuItem>
+					<NavItem eventKey={ 1 } href='#'>signIN</NavItem>
+					<NavItem eventKey={ 2 } href='#'>signUP</NavItem>
+					<NavDropdown eventKey={ 3 } title='coolSTUFF' id='basic-nav-dropdown'>
+						<MenuItem eventKey={ 3.1 }>action</MenuItem>
+						<MenuItem eventKey={ 3.2 }>anotherACTION</MenuItem>
+						<MenuItem eventKey={ 3.3 }>somethingELSE</MenuItem>
 						<MenuItem divider />
-						<MenuItem eventKey={ 3.4 }>Separate Link</MenuItem>
+						<MenuItem eventKey={ 3.4 }>separateLINK</MenuItem>
 					</NavDropdown>
 				</Nav>
 			</Navbar>
