@@ -14,7 +14,7 @@ import {
 class NavBarHeader extends Component {
 	renderLinks(){
 		if (this.props.authenticated){
-			return <NavItem href='#'>signOUT</NavItem>
+			return <NavItem href='/signout'>signOUT</NavItem>
 		} else {
 			return [
 				<NavItem key={ 1 } href='#'>signIN</NavItem>,

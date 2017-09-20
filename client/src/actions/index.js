@@ -44,3 +44,9 @@ export function createPost(props){
 	};
 }
 
+export function signoutUser(){
+	localStorage.removeItem('token');
+
+	return { type: UNAUTH_USER };
+}
+
