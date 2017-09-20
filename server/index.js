@@ -2,13 +2,15 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const app = express();
-const router = require('./router');
+const router = require('./router.js');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 //DB Connection
 mongoose.connect('mongodb://localhost:bucket/bucket');
 
 //Middleware
+app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
 router(app);
 
