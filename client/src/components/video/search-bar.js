@@ -9,7 +9,7 @@ class SearchBar extends Component {
 		return ( 
 			<div className='search-bar'>
 				<label className='vidSearchLbl'>
-					Get INSPIRED:
+					GET Inspired:
 				</label>
 				<input 
 					value = { this.state.term }

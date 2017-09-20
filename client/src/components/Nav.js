@@ -11,8 +11,8 @@ class NavBarHeader extends Component {
 					</Navbar.Brand>
 				</Navbar.Header>
 				<Nav>
-					<NavItem eventKey={ 1 } href='#'>Sign IN</NavItem>
-					<NavItem eventKey={ 2 } href='#'>Sign UP</NavItem>
+					<NavItem eventKey={ 1 } href='#'>SIGN In</NavItem>
+					<NavItem eventKey={ 2 } href='#'>SIGN Up</NavItem>
 					<NavDropdown eventKey={ 3 } title='COOL Stuff' id='basic-nav-dropdown'>
 						<MenuItem eventKey={ 3.1 }>Action</MenuItem>
 						<MenuItem eventKey={ 3.2 }>Another Action</MenuItem>
