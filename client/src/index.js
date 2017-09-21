@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, Redirect, browserHistory } from 'react-router';
 import App from './components/app.js';
+import Signup from './components/auth/signup.js';
 import Signin from './components/auth/signin.js';
 import Signout from './components/auth/signout.js';
 import reducers from './reducers';
@@ -16,6 +17,7 @@ ReactDOM.render(
 	<Provider store={ createStoreWithMiddleware(reducers) }>
 		<Router history={ browserHistory }>
 			<Route path='/' component={ App }>
+				<Route path='signup' component={ Signup } />
 				<Route path='signin' component={ Signin } />
 				<Route path='newitem' component={ NewItem } />
 				<Route path='signout' component={ Signout } />

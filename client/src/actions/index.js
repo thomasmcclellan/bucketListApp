@@ -12,6 +12,21 @@ export const CREATE_POSTS = 'CREATE_POSTS';
 const ROOT_URL = 'http://localhost:3000';
 // const ROOT_URL = 'http://rest.learncode.academy/api/tom'
 
+export function signupUser({ email, password }){
+	return function(dispatch){
+		//Submit email/password to the server
+		axios.post(`${ ROOT_URL }/signup`, { email, password })
+			.then(response => {
+				dispatch({ type: AUTH_USER });
+
+				//Update the token
+				localStorage.setItem('token', response.data.token);
+				browserHistory.push('/newitem');
+			})
+			.catch(response => dispatch(authError(response.data.error)));
+	}
+}
+
 export function signinUser({ email, password }){
 	return function(dispatch){
 		console.log(ROOT_URL, email, password)

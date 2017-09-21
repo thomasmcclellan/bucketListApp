@@ -13,7 +13,7 @@ class Signin extends Component{
 			return (
 				<div className='alert alert-danger'>
 					<strong>sorryPARTNER.</strong>
-					{ this.props. errorMessage }
+					{ this.props.errorMessage }
 				</div>
 			);
 		}
