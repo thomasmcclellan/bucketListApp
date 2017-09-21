@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
-import { createPost } from '../actions/index.js';
+import { createPost } from '../../actions/index.js';
 import { Link } from 'react-router';
 
 class ListItem extends Component{
@@ -27,7 +27,7 @@ class ListItem extends Component{
 				</fieldset>
 				<fieldset className='form-group'>
 					<label>content</label>
-					<input type='text' rows='8' className='form-control text' { ...content } />
+					<textarea type='text' rows='8' className='form-control text' { ...content } />
 				</fieldset>
 
 				<button type='submit' className='btn btn-primary'>submit</button>
