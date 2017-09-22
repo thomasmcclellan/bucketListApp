@@ -57,6 +57,27 @@ exports.fetchBucketList = function(req, res){
 		);
 }
 
+exports.updateBucketList = function(req, res){
+	let specificBucketList = req.params.id;
+	BucketList.findById(specificBucketList, function(err, bucketlistUpdate){
+		if (err){
+			res.status(500, err.message)
+		} else {
+			bucketlistUpdate.title = req.body.props.title;
+			bucketlistUpdate.topic = req.body.props.topic;
+			bucketlistUpdate.url = req.body.props.url;
+			bucketlistUpdate.content = req.body.props.content;
+
+			bucketlistUpdate.save(function(err, bucketlist){
+				if (err){
+					res.status(500, err.message)
+				}
+				res.send(bucketlist);
+			});
+		};
+	});
+}
+
 exports.deleteBucketList = function(req, res){
 	let specificBucketList = req.params.id;
 	BucketList.remove({ _id: specificBucketList })
