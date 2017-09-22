@@ -40,7 +40,8 @@ class ListItems extends Component {
 		});
 	}
 	render(){
-		console.log(ListItems)
+		console.log(this.state.posts);
+		console.log(this.state, 'post test');
 		if (this.state.posts == 0){
 			return(
 				<div><h3>Still loading...</h3></div>			

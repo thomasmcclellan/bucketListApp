@@ -6,7 +6,9 @@ import {
 	UNAUTH_USER, 
 	AUTH_ERROR,
 	CREATE_POSTS,
-	FETCH_POSTS
+	FETCH_POSTS,
+	FETCH_POST,
+	DELETE_POST
 } from './types.js';
 
 const ROOT_URL = 'http://localhost:3000';
@@ -79,6 +81,8 @@ export function fetchPosts(){
 			});
 	}
 }
+
+export function fetchPost(id){}
 
 export function signoutUser(){
 	localStorage.removeItem('token');
