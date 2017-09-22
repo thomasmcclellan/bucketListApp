@@ -5,7 +5,8 @@ import {
 	AUTH_USER, 
 	UNAUTH_USER, 
 	AUTH_ERROR,
-	CREATE_POSTS
+	CREATE_POSTS,
+	FETCH_POSTS
 } from './types.js';
 
 const ROOT_URL = 'http://localhost:3000';
@@ -62,6 +63,19 @@ export function createPost(props){
 					payload: request
 				});
 				browserHistory.push('/newitem');
+			});
+	}
+}
+
+export function fetchPosts(){
+	return function(dispatch){
+		axios.get(`${ ROOT_URL }/items`, config)
+			.then( (response) => {
+				console.log('Response', response)
+				dispatch({
+					type: FETCH_POSTS,
+					payload: response
+				});
 			});
 	}
 }

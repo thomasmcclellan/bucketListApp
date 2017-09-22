@@ -9,6 +9,7 @@ import Signup from './components/auth/signup.js';
 import Signin from './components/auth/signin.js';
 import Signout from './components/auth/signout.js';
 import RequireAuth from './components/auth/require_auth.js';
+import ListShow from './components/list/list-items.js'
 import ListItem from './components/list/new-list-item.js';
 import reducers from './reducers';
 
@@ -21,6 +22,7 @@ ReactDOM.render(
 				<Route path='signup' component={ Signup } />
 				<Route path='signin' component={ Signin } />
 				<Route path='newitem' component={ RequireAuth(ListItem) } />
+				<Route path='items' component={ RequireAuth(ListShow) } />
 				<Route path='signout' component={ Signout } />
 			</Route>
 		</Router>
