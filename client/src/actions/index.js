@@ -8,6 +8,7 @@ import {
 	CREATE_POSTS,
 	FETCH_POSTS,
 	FETCH_POST,
+	UPDATE_POST,
 	DELETE_POST
 } from './types.js';
 
@@ -91,6 +92,19 @@ export function fetchPost(id){
 					type: FETCH_POST,
 					payload: response
 				});
+			});
+	}
+}
+
+export function updatePost(props, id){
+	return function(dispatch){
+		axios.put(`${ ROOT_URL }/items/${ id }`, { props }, config)
+			.then(response => {
+				dispatch({
+					type: UPDATE_POST,
+					payload: response
+				});
+				browserHistory.push('/items');
 			});
 	}
 }

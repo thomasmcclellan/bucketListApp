@@ -14,11 +14,11 @@ import {
 class NavBarHeader extends Component {
 	renderLinks(){
 		if (this.props.authenticated){
-			return <NavItem href='/signout'>signOUT</NavItem>
+			return <NavItem href='/'>signOUT</NavItem>
 		} else {
 			return [
-				<NavItem key={ 1 } href='#'>signIN</NavItem>,
-				<NavItem key={ 2 } href='#'>signUP</NavItem>
+				<NavItem key={ 1 } href='/signin'>signIN</NavItem>,
+				<NavItem key={ 2 } href='/signup'>signUP</NavItem>
 			];
 		}
 	}

@@ -24,7 +24,7 @@ class Signin extends Component{
 		
 		return (
 			<form onSubmit={ handleSubmit(this.handleFormSubmit.bind(this)) }>
-				<h3>signUP!</h3>
+				<h3>signIN!</h3>
 				<fieldset className='form-group'>
 					<label>email:</label>
 					<input { ...email } className='form-control' />
