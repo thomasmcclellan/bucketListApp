@@ -1,10 +1,18 @@
 const BucketList = require('../models/bucketlist.js');
 
 exports.addBucketList = function(req, res, next){
-	let title = req.body.title;
-	let topic = req.body.topic;
-	let url = req.body.url;
-	let content = req.body.content;
+	//For Postman:
+	// let title = req.body.props.title;
+	// let topic = req.body.props.topic;
+	// let url = req.body.props.url;
+	// let content = req.body.props.content;
+	// let specificUser = req.user._id;
+
+	//For Browser:
+	let title = req.body.props.title;
+	let topic = req.body.props.topic;
+	let url = req.body.props.url;
+	let content = req.body.props.content;
 	let specificUser = req.user._id;
 
 	let bucketList = new BucketList({

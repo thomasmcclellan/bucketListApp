@@ -9,8 +9,9 @@ import Signup from './components/auth/signup.js';
 import Signin from './components/auth/signin.js';
 import Signout from './components/auth/signout.js';
 import RequireAuth from './components/auth/require_auth.js';
-import ListItems from './components/list/list-items.js'
 import ListItem from './components/list/new-list-item.js';
+import ListItems from './components/list/list-items.js'
+import ListShow from './components/list/list-show.js'
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
@@ -23,6 +24,7 @@ ReactDOM.render(
 				<Route path='signin' component={ Signin } />
 				<Route path='newitem' component={ RequireAuth(ListItem) } />
 				<Route path='items' component={ RequireAuth(ListItems) } />
+				<Route path='items/:id' component={ RequireAuth(ListShow) } />
 				<Route path='signout' component={ Signout } />
 			</Route>
 		</Router>

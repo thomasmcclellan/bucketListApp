@@ -64,7 +64,7 @@ export function createPost(props){
 					type: CREATE_POSTS,
 					payload: request
 				});
-				browserHistory.push('/newitem');
+				browserHistory.push('/items');
 			});
 	}
 }
@@ -72,7 +72,7 @@ export function createPost(props){
 export function fetchPosts(){
 	return function(dispatch){
 		axios.get(`${ ROOT_URL }/items`, config)
-			.then( (response) => {
+			.then((response) => {
 				console.log('Response', response)
 				dispatch({
 					type: FETCH_POSTS,
@@ -82,7 +82,31 @@ export function fetchPosts(){
 	}
 }
 
-export function fetchPost(id){}
+export function fetchPost(id){
+	return function(dispatch){
+		axios.get(`${ ROOT_URL }/items/${ id }`, config)
+			.then((response) => {
+				console.log('Response', response)
+				dispatch({
+					type: FETCH_POST,
+					payload: response
+				});
+			});
+	}
+}
+
+export function deletePost(id){
+	return function(dispatch){
+		axios.delete(`${ ROOT_URL }/items/${ id }`, config)
+			.then((response) => {
+				dispatch({
+					type: DELETE_POST,
+					payload: response
+				});
+				browserHistory.push('/items');
+			});
+	}
+}
 
 export function signoutUser(){
 	localStorage.removeItem('token');
