@@ -8,12 +8,11 @@ function createUserToken(user){
 }
 
 exports.signup = function(req, res, next){
-	
 	let email = req.body.email;
 	let password = req.body.password;
 	
 	if (!email || !password){
-		return res.status(418).send({error: 'You must provide email and password'});
+		return res.status(418).send({ error: 'You must provide email and password' });
 	}
 
 	User.findOne({ email: email }, function(err, existingUser){
