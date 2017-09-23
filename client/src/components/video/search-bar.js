@@ -12,7 +12,7 @@ class SearchBar extends Component {
 					getINSPIRED:
 				</label>
 				<input 
-					value = { this.state.term }
+					placeholder = { this.state.term }
 					onChange = { (event) => this.onInputChange(event.target.value) } />
 			</div>
 		);

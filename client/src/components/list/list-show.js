@@ -22,7 +22,6 @@ class ListShow extends Component{
 		this.props.fetchPost(this.props.params.id);
 	}
 	onDeleteClick(){
-		//TODO - add the delete here
 		this.props.deletePost(this.props.params.id);
 	}
 	render(){

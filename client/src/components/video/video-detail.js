@@ -15,10 +15,11 @@ const VideoDetail = ({ video }) => {
 			</div>
 
 			<div className='details'>
-				<div>{ video.snippet.title }</div>
+				<div style={{ color: 'orange' }}><b>{ video.snippet.title }</b></div>
 				<div>{ video.snippet.description }</div>
 			</div>
 		</div>
 	)
+	console.log(video.snippet.description.url)
 };
 export default VideoDetail;
